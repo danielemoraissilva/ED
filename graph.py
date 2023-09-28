@@ -21,7 +21,7 @@ class Graph:
         
         while Q.empty() != True:
             p = Q.get()
-            print("Vértice: " + str(p))
+            print("Vértice visitado: " + str(p))
             if p == t:
               break
             
@@ -45,7 +45,6 @@ class Graph:
         visitados = [False for _ in range(self.num_vertices)]
         pilha = []
         pilha.append(source)
-        vizinhos = []
         caminho = []
 
         while pilha:
@@ -53,13 +52,9 @@ class Graph:
             if not visitados[u]:
                 visitados[u] = True
                 caminho.append(u)
-                print(f"Vértice: {u}")
-                for v in range(self.num_vertices):
-                    if self.matrix[u][v] != 0 and not visitados[v]:
-                        vizinhos.append(v)
-                for v in vizinhos:
-                  pilha.append(v)
+                print(f"Vértice visitado: {u}")
+                for v in self.list[u]:
+                      if not visitados[v]:
+                        pilha.append(v)
+                
         return visitados, caminho
-          
-      
-        
