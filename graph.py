@@ -18,10 +18,11 @@ class Graph:
         visitados[s] = True
         dist[s] = 0
         caminho = []
+        v2 = t
         
         while Q.empty() != True:
             p = Q.get()
-            print("Vértice visitado: " + str(p))
+            print("Vértice: " + str(p))
             if p == t:
               break
             
@@ -38,7 +39,9 @@ class Graph:
           while t != -1:
             caminho.append(t)
             t = ant[t]
-          print(f"Caminho inverso: {caminho}")
+          print(f"Caminho de {s} até {v2}: {caminho}")
+          caminho.reverse()
+          print(f"Caminho inverso de {s} até {v2}: {caminho}")
         return visitados, caminho
       
     def dfs(self, source):
@@ -52,7 +55,7 @@ class Graph:
             if not visitados[u]:
                 visitados[u] = True
                 caminho.append(u)
-                print(f"Vértice visitado: {u}")
+                print(f"Vértice: {u}")
                 for v in self.list[u]:
                       if not visitados[v]:
                         pilha.append(v)
