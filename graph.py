@@ -39,9 +39,12 @@ class Graph:
           while t != -1:
             caminho.append(t)
             t = ant[t]
-          print(f"Caminho de {s} até {v2}: {caminho}")
+          print(f"Caminho inverso do início {s} até o final {v2}: {caminho}")
           caminho.reverse()
-          print(f"Caminho inverso de {s} até {v2}: {caminho}")
+          print(f"Caminho do início {s} até o final {v2}: {caminho}")
+          
+
+      
         return visitados, caminho
       
     def dfs(self, source):
@@ -61,3 +64,4 @@ class Graph:
                         pilha.append(v)
                 
         return visitados, caminho
+
